@@ -141,29 +141,57 @@ body {
 
 .access-restricted {
   display: none;
-  background: rgba(239, 68, 68, 0.1);
-  border: 2px solid #ef4444;
+  background: rgba(255, 143, 112, 0.8);
+  border: 2px solid #e6253a;
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 24px;
+  box-shadow: 0 0 20px rgba(251, 146, 60, 0.3),
+    inset 0 0 20px rgba(251, 146, 60, 0.1);
+  animation: restrictedPulse 2s ease-in-out infinite;
 }
 
 .access-restricted.show {
   display: block;
+  animation: restrictedFadeIn 0.4s ease-out,
+    restrictedPulse 2s ease-in-out infinite;
+}
+
+@keyframes restrictedFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes restrictedPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(251, 146, 60, 0.3),
+      inset 0 0 20px rgba(251, 146, 60, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(251, 146, 60, 0.5),
+      inset 0 0 30px rgba(251, 146, 60, 0.15);
+  }
 }
 
 .restricted-title {
-  color: #ef4444;
+  color: black;
   font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .restricted-text {
-  color: white;
+  color: black;
   font-size: 16px;
-  line-height: 1.5;
-  opacity: 0.95;
+  line-height: 1.3;
+  opacity: 1;
 }
 
 .bottom-text {
