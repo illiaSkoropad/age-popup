@@ -175,7 +175,22 @@ body {
 
 /* Hide popup when closed */
 .overlay.hidden {
-  display: none;
+  display: none !important;
+}
+
+/* Гарантований показ попапу поверх всього */
+.overlay {
+  z-index: 999999 !important;
+  pointer-events: all !important;
+}
+
+/* Додаткові стилі для блокування взаємодії */
+body.age-verification-active {
+  overflow: hidden !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
 }
 
 /* Responsive */
