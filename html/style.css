@@ -12,7 +12,7 @@ body {
 }
 
 .overlay {
-  padding: 20px 10px;
+  padding: 40px 10px 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +32,7 @@ body {
   align-items: center;
   flex-direction: column;
   min-height: 0;
-  gap: 20px;
+  gap: 40px;
 }
 
 .popup-content {
@@ -65,8 +65,9 @@ body {
   border: 2px solid red;
 
   img {
-    max-width: 80px;
-    max-height: 80px;
+    display: block;
+    width: 80px;
+    height: auto;
     object-fit: contain;
     object-position: center;
     transition: all 0.3s ease;
