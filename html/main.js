@@ -50,6 +50,14 @@
     attachEventListeners() {
       const preventIfNotVerified = (e) => {
         if (!this.state.verified) {
+          // Не блокуємо скрол події
+          if (
+            e.type === "wheel" ||
+            e.type === "touchmove" ||
+            e.type === "scroll"
+          ) {
+            return;
+          }
           e.preventDefault();
           e.stopPropagation();
           return false;
@@ -94,6 +102,23 @@
           preventIfNotVerified(e);
         }
       });
+
+      // Дозволяємо скрол в overlay
+      this.elements.overlay?.addEventListener(
+        "wheel",
+        (e) => {
+          // Дозволяємо скрол
+        },
+        { passive: true }
+      );
+
+      this.elements.overlay?.addEventListener(
+        "touchmove",
+        (e) => {
+          // Дозволяємо touch скрол
+        },
+        { passive: true }
+      );
     },
 
     initPopup() {
@@ -127,7 +152,7 @@
       this.elements.accessRestricted?.classList.add("show");
       this.elements.accessRestricted?.scrollIntoView({
         behavior: "smooth",
-        block: "center",
+        block: "nearest",
       });
     },
 
